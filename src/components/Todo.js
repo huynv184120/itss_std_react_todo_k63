@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 /* 
   【Todoのデータ構成】
 　・key：Todoを特定するID（String）
@@ -26,14 +25,22 @@ function Todo() {
     { key: getKey(), text: '明日の準備をする', done: false },
     /* テストコード 終了 */
   ]);
+  
+  const handleAdd = (text) => {
+    putItems([...items, { key: getKey(), text, done: false }])
+  }
 
   return (
     <div className="panel">
       <div className="panel-heading">
         ITSS ToDoアプリ
       </div>
+      <Input onAdd={handleAdd} />
       {items.map(item => (
-        <TodoItem item={item}/>
+        <TodoItem 
+          key={item.key}
+          item={item}
+        />
       ))}
       <div className="panel-block">
         {items.length} items
