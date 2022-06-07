@@ -4,9 +4,7 @@ import React, { useState } from 'react';
 
 function Input( { onAdd } ) {
   const [text, setText] = React.useState('');
-
   const handleChange = e => setText(e.target.value);
-
   const handleKeyDown = e => {
     if (e.keyCode === 13) {
       onAdd(text);

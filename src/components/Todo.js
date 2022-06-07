@@ -35,7 +35,9 @@ function Todo() {
       <div className="panel-heading">
         ITSS ToDoアプリ
       </div>
+
       <Input onAdd={handleAdd} />
+      <Filter/>
       {items.map(item => (
         <TodoItem 
           key={item.key}
